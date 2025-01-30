@@ -6,16 +6,35 @@ block variables
 
 block content
   main(data-barba='container', data-barba-namespace=pageName)
-    .inner
-      h1= pageName
-
-      br
-      br
-      br
-      a(href='blocks.html') Repository blocks
-      br
-      br
-      a(href='main.html') Main
-      br
-      br
-      a(href='ui.html') UI
+    .inner.my-60px.px-60px.relative
+      a(href='#').absolute.left-60px.top-0.border.border-solid.border-grey-100.rounded-xl.p-5.w-max(class='tablet:p-3 tablet:w-10 tablet:h-10 tablet:rounded-lg mobile:p-3 mobile:w-10 mobile:h-10 mobile:rounded-lg')
+        +left-arrow('w-5 h-5')
+      .w-890px.m-auto
+        h1.m-auto.font-primary.text-5xl.font-semibold Итоги выставки EcwaTech
+        .mt-6.flex.gap-4.items-center
+          .rounded-xl.bg-black.text-white-200.py-1.px-3.font-primary Новости
+          .text-black.font-primary 18 октября 2023
+          .text-blue.font-primary #выставки
+        +text.mt-10
+          p
+            | В&nbsp;середине сентября прошла выставка #[a(href='#') EcwaTech], которая в&nbsp;17-ый раз стала международной площадкой для встречи специалистов в&nbsp;области коммунальной и&nbsp;промышленной водоподготовки, водоснабжения, водоотведения и&nbsp;очистки сточных вод. Мы&nbsp;наконец готовы рассказать и&nbsp;показать вам, как это было!
+        .mt-10.overflow-hidden(class='rounded-[20px]')
+          +picture('cnp-1.jpg')
+        +text.mt-10
+          p
+            | Больше фотографий вы можете найти в&nbsp;нашем #[a(href='#') официальном сообществе ВКонтакте], где мы всегда оперативно публикуем новости компании, фото и&nbsp;видео с&nbsp;наших мероприятий.
+        +text.mt-4
+          p
+            | Неотъемлемой изюминкой наших стендов стало&nbsp;то, что мы&nbsp;всегда готовы вас удивлять! Ecwatech2023&nbsp;не стал исключением. Впервые на&nbsp;территории&nbsp;РФ нами была представлена модель серии CDM&nbsp;в высокотемпературном исполнении.
+        +text.mt-4
+          p
+            | Помимо этого, мы&nbsp;презентовали установку повышения давления нового поколения, собранную на&nbsp;новом производстве в&nbsp;Подмосковье на&nbsp;базе насосов #[a(href='#') CDM] от&nbsp;компании CNP в&nbsp;паре с&nbsp;автоматикой Aikon. И&nbsp;это еще не&nbsp;всё! Подробнее вы&nbsp;можете узнать в&nbsp;нашем видео.
+        +text.mt-4
+          p
+            | Мы&nbsp;благодарим всех гостей за&nbsp;посещение выставки и&nbsp;нашего стенда! До&nbsp;новых встреч!
+      .w-full.bg-grey-100(class='h-[1px] mt-[120px]')
+      h2.font-primary.text-black.font-semibold.mt-5(class='text-[32px]') Похожие новости
+      .grid.grid-cols-3.gap-5.justify-between.mt-10 
+        +article('Итоги выставки EcwaTech', '18 октября 2023', 'Новости', ['#выставки'], '#', 'cnp-2.jpg')
+        +article('Кавитация и NPSHr, расчет максимальной высоты подъёма', '11 февраля 2022 года', 'Новости', ['#расчеты'], '#', 'cnp-3.jpg')
+        +article('Насосы серии NIS вошли в складскую программу CNP', '10 ноября 2023', 'Новости', ['#NIS', '#NISO', '#склад', '#распродажа'], '#', 'cnp-4.jpg')

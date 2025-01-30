@@ -1,0 +1,10 @@
+.text {
+  p {
+    @apply font-primary text-xl leading-8 underline-offset-4 tracking-[-.2px];
+
+    a {
+      @apply text-blue underline;
+    }
+  }
+
+}

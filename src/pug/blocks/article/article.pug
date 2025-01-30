@@ -1,0 +1,24 @@
+mixin article(title, date, section, tags, href, img, mods)
+  -
+    const baseName = 'article'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '_' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a(href='#').border.border-solid.border-grey-100.px-4.pt-4.relative(class='rounded-[20px] pb-[37px]')
+    .rounded-xl.relative
+      +picture(img)
+      .absolute.left-5.top-5.rounded-xl.py-1.px-3.text-white-200.bg-white-100.text-base.font-primary=date
+      .absolute.left-5.bottom-6.rounded-xl.py-1.px-3.text-white-200.bg-black.text-base.font-primary=section
+    .mt-10.px-10
+      h3.font-primary.text-black.font-semibold(class='text-[32px] min-h-[168px]')=title
+      .flex.gap-2.items-center(class='mt-[31px]')
+        each item in tags
+          .text-blue.font-primary=item
+        .absolute.right-5.bottom-5.rounded-xl.p-3.w-max.bg-blue(class='tablet:p-3 tablet:w-10 tablet:h-10 tablet:rounded-lg mobile:p-3 mobile:w-10 mobile:h-10 mobile:rounded-lg')
+          +right-arrow('w-5 h-5')

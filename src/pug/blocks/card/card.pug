@@ -1,0 +1,22 @@
+mixin card(mods)
+  -
+    const baseName = 'card'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '_' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  a(href='#').card.border.border-solid.border-grey-100.rounded-xl.p-6.bg-white-200.w-full(class="tablet:p-4 mobile:p-4")
+    .flex.justify-between
+      .flex.gap-3(class='tablet:gap-2 mobile:gap-2')
+        div(class='w-60px h-60px tablet:w-10 tablet:h-10 mobile:w-10 mobile:h-10')
+          +file-svg('w-full h-full')
+        p.font-primary.text-base.uppercase.text-grey-200.font-normal(class='tablet:text-sm mobile:text-sm') 1,55 МБ
+      div
+        .border.border-solid.border-grey-100.rounded-xl.p-18px(class='tablet:p-3 tablet:w-10 tablet:h-10 tablet:rounded-lg mobile:p-3 mobile:w-10 mobile:h-10 mobile:rounded-lg')
+          +download-svg('w-full h-full')
+    p.font-primary.text-black.font-semibold.mt-68px.text-xl(class='tablet:mt-6 tablet:text-sm mobile:mt-6 mobile:text-sm') Прайс от 20 октября 2023 года

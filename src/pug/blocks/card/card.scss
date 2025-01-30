@@ -1,0 +1,12 @@
+.card {
+  position: relative;
+  max-width: rem(586px);
+
+  @media #{media('<',d)} {
+    max-width: rem(352px);
+  }
+
+  @media #{media('<',m)} {
+    max-width: rem(343px);
+  }
+}
