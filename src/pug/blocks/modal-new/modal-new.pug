@@ -1,0 +1,18 @@
+mixin modal-new(modalID, mods)
+  -
+    const baseName = 'modal-new'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '_' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  div.absolute.inset-0.w-screen.h-screen.hidden(id=modalID)
+    .bg-grey-300.w-full.h-full.z-1(class='backdrop-blur-[17px]')
+    dialog.modal.bg-white-200.overflow-auto.fixed.inset-full.w-max.flex-col.block.z-10(class='rounded-[1.25rem] p-[5rem] max-w-[90vw] max-h-[90vh] left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]')
+      button.absolute.top-10.right-10.rounded-xl.border.border-solid.border-grey-100.duration-500(class='p-[0.8125rem] hover:border-blue' data-modal-hide=modalID)
+        +close-svg
+      block

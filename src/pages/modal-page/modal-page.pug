@@ -1,0 +1,16 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'modal-page'
+    const pageTitle = 'modal-page'
+
+block content
+  main(data-barba='container' data-barba-namespace=pageName)
+    button.bg-blue.text-white-200.font-semibold.py-6.font-primary(class='px-[3rem] rounded-[1.25rem]' data-modal-toggle="cnp"  data-modal-target="cnp") Показать модальное окно
+    +modal-new('cnp')
+      h4.font-primary.text-5xl.font-semibold.text-center.mx-auto Удалить партнера
+      p.mt-10.text-2xl.text-black.font-primary.text-center Вы действительно хотите удалить партнера #[br] #[span.font-semibold ts@cloudmill.ru] из проекта #[br] #[span.font-semibold Ижевская ТЭЦ-1]
+      .flex.gap-5.mt-10
+        button.rounded-xl.bg-white-200.text-black.font-semibold.py-6.font-primary.w-full.border.border-solid.border-grey-100.duration-500(class='px-[3rem] rounded-[1.25rem] hover:border-blue' data-modal-toggle="cnp"  data-modal-hide="cnp") Отменить
+        button.rounded-xl.bg-blue.text-white-200.font-semibold.py-6.font-primary.w-full.border.border-solid.border-blue.duration-500(class='px-[3rem] rounded-[1.25rem] hover:border-white-200' data-modal-toggle="cnp"  data-modal-hide="cnp") Да, удалить
